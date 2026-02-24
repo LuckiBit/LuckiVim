@@ -5,11 +5,12 @@ return {
         priority = 1000,
 
         opts = {
-            style = "moon", -- storm | night | day | moon
+            style = "moon" -- storm | night | day | moon
         },
 
-        config = function()
+        config = function(_, opts)
+            require("tokyonight").setup(opts)
             vim.cmd.colorscheme("tokyonight")
-        end,
-    },
+        end
+    }
 }
