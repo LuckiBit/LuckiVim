@@ -32,21 +32,21 @@ It provides a lightweight and organized setup that is easy to extend and customi
   ```sh
   mv ~/.config/nvim ~/.config/nvim.bak
   mv ~/.local/share/nvim ~/.local/share/nvim.bak
-````
+  ```
 
-* Clone the repository
+- Clone the repository
 
   ```sh
   git clone https://github.com/LuckiBit/LuckiVim.git ~/.config/nvim
   ```
 
-* Remove the `.git` folder, so you can add it to your own repo later
+- Remove the `.git` folder, so you can add it to your own repo later
 
   ```sh
   rm -rf ~/.config/nvim/.git
   ```
 
-* Start Neovim!
+- Start Neovim!
 
   ```sh
   nvim
@@ -60,25 +60,25 @@ On first launch, lazy.nvim will automatically install all plugins.
 
 To completely remove LuckiVim and lazy.nvim, delete the following files and directories:
 
-* Remove LuckiVim configuration:
+- Remove LuckiVim configuration:
 
   ```sh
   rm -rf ~/.config/nvim
   ```
 
-* Remove lazy.nvim plugin data:
+- Remove lazy.nvim plugin data:
 
   ```sh
   rm -rf ~/.local/share/nvim/lazy
   ```
 
-* Remove lazy.nvim state:
+- Remove lazy.nvim state:
 
   ```sh
   rm -rf ~/.local/state/nvim/lazy
   ```
 
-* Remove lazy lockfile:
+- Remove lazy lockfile:
 
   ```sh
   rm -f ~/.config/nvim/lazy-lock.json
