@@ -3,8 +3,6 @@
 LuckiVim is a clean and modular Neovim configuration powered by lazy.nvim.  
 It provides a lightweight and organized setup that is easy to extend and customize.
 
----
-
 ## ✨ Features
 
 - Clean modular Lua structure  
@@ -13,15 +11,11 @@ It provides a lightweight and organized setup that is easy to extend and customi
 - Separated config (options, keymaps, autocmds)  
 - TokyoNight theme included  
 
----
-
 ## ⚡ Requirements
 
 - Neovim >= 0.9
 - Git
 - Nerd Font (optional but recommended)
-
----
 
 ## 🚀 Getting Started
 
@@ -54,8 +48,6 @@ It provides a lightweight and organized setup that is easy to extend and customi
 
 On first launch, lazy.nvim will automatically install all plugins.
 
----
-
 ## ❌ Uninstalling
 
 To completely remove LuckiVim and lazy.nvim, delete the following files and directories:
@@ -85,8 +77,6 @@ To completely remove LuckiVim and lazy.nvim, delete the following files and dire
   ```
 
 > Paths may differ if you changed XDG environment variables.
-
----
 
 ## 📂 File Structure
 
