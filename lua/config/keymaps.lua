@@ -23,6 +23,18 @@ map("n", "<leader>tv", ":rightbelow vsplit | terminal<CR>", { silent = true, des
 map("t", "<C-n>", "<C-\\><C-n>", { silent = true, desc = "Exit Terminal Mode" })
 map("t", "<C-q>", "<C-\\><C-n>:bd!<CR>", { silent = true, desc = "Close Terminal" })
 
+-- buffers
+map("n", "<leader>bb", "<cmd>buffer #<cr>", { silent = true, desc = "Switch to Alternate Buffer" })
+map("n", "<leader>bl", "<cmd>ls<cr>", { silent = true, desc = "List Buffers" })
+map("n", "<leader>bd", "<cmd>bdelete<cr>", { silent = true, desc = "Delete Buffer" })
+map("n", "<leader>bD", "<cmd>bdelete!<cr>", { silent = true, desc = "Force Delete Buffer" })
+map("n", "<leader>bo", "<cmd>%bdelete|edit#|bdelete#<cr>", { silent = true, desc = "Delete Other Buffers" })
+map("n", "<leader>bp", "<cmd>bprevious<cr>", { silent = true, desc = "Previous Buffer" })
+map("n", "<leader>bn", "<cmd>bnext<cr>", { silent = true, desc = "Next Buffer" })
+
+-- new file
+map("n", "<leader>fn", "<cmd>enew<cr>", { silent = true, desc = "New File" })
+
 -- <leader>om -> open :messages
 map("n", "<leader>om", function()
     vim.cmd("new")
@@ -47,3 +59,9 @@ map("n", "<leader>oc", function()
         vim.bo.swapfile = false
     end)
 end, { silent = true, desc = "Capture command output" })
+
+-- Lazy
+map("n", "<leader>l", "<cmd>Lazy<cr>", { silent = true, desc = "Lazy" })
+
+-- Quit all
+map("n", "<leader>qq", "<cmd>qa<cr>", { silent = true, desc = "Quit All" })
