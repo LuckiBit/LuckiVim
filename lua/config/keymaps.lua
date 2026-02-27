@@ -35,6 +35,9 @@ map("n", "<leader>bn", "<cmd>bnext<cr>", { silent = true, desc = "Next Buffer" }
 -- new file
 map("n", "<leader>fn", "<cmd>enew<cr>", { silent = true, desc = "New File" })
 
+-- Lazy
+map("n", "<leader>l", "<cmd>Lazy<cr>", { silent = true, desc = "Lazy" })
+
 -- <leader>om -> open :messages
 map("n", "<leader>om", function()
     vim.cmd("new")
@@ -60,8 +63,9 @@ map("n", "<leader>oc", function()
     end)
 end, { silent = true, desc = "Capture command output" })
 
--- Lazy
-map("n", "<leader>l", "<cmd>Lazy<cr>", { silent = true, desc = "Lazy" })
-
 -- Quit all
 map("n", "<leader>qq", "<cmd>qa<cr>", { silent = true, desc = "Quit All" })
+
+-- Leap
+map({ "n", "x", "o" }, "s", "<Plug>(leap)", { silent = true, desc = "Leap Forward" })
+map("n", "S", "<Plug>(leap-from-window)", { silent = true, desc = "Leap From Window" })
