@@ -1,21 +1,27 @@
 # LuckiVim
 
-LuckiVim is a clean and modular Neovim configuration powered by lazy.nvim.  
-It provides a lightweight and organized setup that is easy to extend and customize.
+[LuckiVim](https://github.com/LuckiBit/LuckiVim) is a clean and modular Neovim configuration powered by lazy.nvim.  
+It provides a fast, lightweight, and easy-to-extend setup.
 
 ## ✨ Features
 
-- Clean modular Lua structure  
+- Clean and organized Lua structure  
+- Fast and minimal  
+- Modular configuration  
 - Powered by lazy.nvim  
-- Fast startup  
-- Separated config (options, keymaps, autocmds)  
-- TokyoNight theme included  
+- Modern UI and plugin integration  
 
 ## ⚡ Requirements
 
-- Neovim >= 0.9
+- Neovim 0.11.6 or later
 - Git
 - Nerd Font (optional but recommended)
+- fd (used by Telescope)
+- ripgrep (used by Telescope)
+- stylua (for Lua formatting)
+- cmake (required for building telescope-fzf-native.nvim and other native extensions)
+- tree-sitter-cli (for nvim-treesitter)
+- A C compiler (required for nvim-treesitter)
 
 ## 🚀 Getting Started
 
@@ -76,7 +82,7 @@ To completely remove LuckiVim and lazy.nvim, delete the following files and dire
   rm -f ~/.config/nvim/lazy-lock.json
   ```
 
-> Paths may differ if you changed XDG environment variables.
+Paths may differ if you changed [XDG](https://specifications.freedesktop.org/basedir/latest/) environment variables.
 
 ## 📂 File Structure
 
