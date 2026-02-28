@@ -35,6 +35,13 @@ map("n", "<leader>bn", "<cmd>bnext<cr>", { silent = true, desc = "Next Buffer" }
 -- new file
 map("n", "<leader>fn", "<cmd>enew<cr>", { silent = true, desc = "New File" })
 
+-- Telescope
+map("n", "<leader>ff", "<cmd>Telescope find_files<cr>", { silent = true, desc = "Find Files" })
+map("n", "<leader>fg", "<cmd>Telescope live_grep<cr>", { silent = true, desc = "Live Grep" })
+map("n", "<leader>fb", "<cmd>Telescope buffers<cr>", { silent = true, desc = "Find Buffers" })
+map("n", "<leader>fh", "<cmd>Telescope help_tags<cr>", { silent = true, desc = "Help Tags" })
+map("n", "<leader>/", "<cmd>Telescope current_buffer_fuzzy_find<cr>", { silent = true, desc = "Search in File" })
+
 -- Lazy
 map("n", "<leader>l", "<cmd>Lazy<cr>", { silent = true, desc = "Lazy" })
 

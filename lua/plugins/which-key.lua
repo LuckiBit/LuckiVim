@@ -26,7 +26,7 @@ return {
             { "<leader>bo", desc = "Delete Other Buffers", icon = { icon = "󰶐", color = "orange" } },
             { "<leader>bp", desc = "Previous Buffer", icon = { icon = "󰒮", color = "cyan" } },
             { "<leader>bn", desc = "Next Buffer", icon = { icon = "󰒭", color = "cyan" } },
-            { "<leader>f", group = "+file" },
+            { "<leader>f", group = "+file/find" },
             { "<leader>t", group = "+terminal" },
             { "<leader>tt", desc = "Open Terminal (cwd)", icon = { icon = "󰆍", color = "green" } },
             { "<leader>tp", desc = "Open PowerShell in Root Dir", icon = { icon = "󰨊", color = "azure" } },
