@@ -31,3 +31,6 @@ opt.spell = false -- Enable spell checking
 opt.spelllang = { "en_us" } -- Spell language(s), e.g. "en_us", "en_gb"
 
 vim.opt.modeline = false -- allow files to set editor options via modelines
+
+-- optionally enable 24-bit colour
+vim.opt.termguicolors = true

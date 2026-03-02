@@ -10,7 +10,7 @@ return {
             function()
                 require("which-key").show({ global = false })
             end,
-            desc = "Buffer Local Keymaps (which-key)",
+            desc = "Buffer Local Keymaps",
         },
     },
     config = function(_, opts)
@@ -26,6 +26,16 @@ return {
             { "<leader>bo", desc = "Delete Other Buffers", icon = { icon = "󰶐", color = "orange" } },
             { "<leader>bp", desc = "Previous Buffer", icon = { icon = "󰒮", color = "cyan" } },
             { "<leader>bn", desc = "Next Buffer", icon = { icon = "󰒭", color = "cyan" } },
+            {
+                "<leader>e",
+                group = "NvimTree Root Dir",
+                icon = { icon = "󰙅", color = "green" },
+            },
+            {
+                "<leader>E",
+                group = "NvimTree CWD",
+                icon = { icon = "󰙅", color = "yellow" },
+            },
             { "<leader>f", group = "+file/find" },
             { "<leader>t", group = "+terminal" },
             { "<leader>tt", desc = "Open Terminal (cwd)", icon = { icon = "󰆍", color = "green" } },
@@ -33,7 +43,7 @@ return {
             { "<leader>ts", desc = "Terminal Horizontal Split (Below)", icon = { icon = "󰤻", color = "cyan" } },
             { "<leader>tv", desc = "Terminal Vertical Split (Right)", icon = { icon = "󰤼", color = "cyan" } },
             { "<leader>o", group = "+output", icon = { icon = "󰈙", color = "purple" } },
-            { "<leader>l", group = "lazy", icon = { icon = "󰒲", color = "blue" } },
+            { "<leader>l", group = "Lazy", icon = { icon = "󰒲", color = "blue" } },
             { "<leader>q", group = "+quit/session" },
             { "<leader>w", proxy = "<c-w>", group = "+windows" },
         })

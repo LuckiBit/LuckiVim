@@ -1,5 +1,9 @@
 local map = vim.keymap.set
-local root_path = vim.fn.getcwd()
+
+-- Paths
+local root_path = vim.fn.getcwd() -- Current working directory
+local cwd_path = vim.loop.cwd() -- Current working directory (libuv)
+local home_path = vim.loop.os_homedir() -- User home directory
 
 -- Normal mode: open terminal
 map("n", "<leader>tt", ":terminal<CR>", { silent = true, desc = "Open Terminal (cwd)" })
@@ -32,14 +36,24 @@ map("n", "<leader>bo", "<cmd>%bdelete|edit#|bdelete#<cr>", { silent = true, desc
 map("n", "<leader>bp", "<cmd>bprevious<cr>", { silent = true, desc = "Previous Buffer" })
 map("n", "<leader>bn", "<cmd>bnext<cr>", { silent = true, desc = "Next Buffer" })
 
+-- NvimTree
+map("n", "<leader>e", function()
+    require("nvim-tree.api").tree.open({ path = root_path })
+end, { silent = true, desc = "NvimTree Root Dir" })
+
+map("n", "<leader>E", function()
+    require("nvim-tree.api").tree.open({ path = cwd_path })
+end, { silent = true, desc = "NvimTree CWD" })
+
 -- new file
 map("n", "<leader>fn", "<cmd>enew<cr>", { silent = true, desc = "New File" })
 
 -- Telescope
+map("n", "<leader>fb", "<cmd>Telescope buffers<cr>", { silent = true, desc = "Find Buffers" })
 map("n", "<leader>ff", "<cmd>Telescope find_files<cr>", { silent = true, desc = "Find Files" })
 map("n", "<leader>fg", "<cmd>Telescope live_grep<cr>", { silent = true, desc = "Live Grep" })
-map("n", "<leader>fb", "<cmd>Telescope buffers<cr>", { silent = true, desc = "Find Buffers" })
 map("n", "<leader>fh", "<cmd>Telescope help_tags<cr>", { silent = true, desc = "Help Tags" })
+map("n", "<leader>fr", "<cmd>Telescope registers<cr>", { silent = true, desc = "Show Registers" })
 map("n", "<leader>/", "<cmd>Telescope current_buffer_fuzzy_find<cr>", { silent = true, desc = "Search in File" })
 
 -- Lazy
