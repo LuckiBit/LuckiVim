@@ -59,6 +59,9 @@ map("n", "<leader>/", "<cmd>Telescope current_buffer_fuzzy_find<cr>", { silent =
 -- Lazy
 map("n", "<leader>l", "<cmd>Lazy<cr>", { silent = true, desc = "Lazy" })
 
+-- Mason
+map("n", "<leader>m", "<cmd>Mason<cr>", { silent = true, desc = "Mason" })
+
 -- <leader>om -> open :messages
 map("n", "<leader>om", function()
     vim.cmd("new")
