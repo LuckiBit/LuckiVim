@@ -37,6 +37,7 @@ return {
                 icon = { icon = "󰙅", color = "yellow" },
             },
             { "<leader>f", group = "+file/find" },
+            { "<leader>h", group = "Clear Highlight", icon = { icon = "", color = "yellow" } },
             { "<leader>t", group = "+terminal" },
             { "<leader>tt", desc = "Open Terminal (cwd)", icon = { icon = "󰆍", color = "green" } },
             { "<leader>tp", desc = "Open PowerShell in Root Dir", icon = { icon = "󰨊", color = "azure" } },

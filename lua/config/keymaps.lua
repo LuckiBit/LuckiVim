@@ -56,6 +56,9 @@ map("n", "<leader>fh", "<cmd>Telescope help_tags<cr>", { silent = true, desc = "
 map("n", "<leader>fr", "<cmd>Telescope registers<cr>", { silent = true, desc = "Show Registers" })
 map("n", "<leader>/", "<cmd>Telescope current_buffer_fuzzy_find<cr>", { silent = true, desc = "Search in File" })
 
+-- Clear search highlight
+map("n", "<leader>h", "<cmd>nohlsearch<cr>", { silent = true, desc = "Clear Search Highlight" })
+
 -- Lazy
 map("n", "<leader>l", "<cmd>Lazy<cr>", { silent = true, desc = "Lazy" })
 
