@@ -26,6 +26,12 @@ return {
             { "<leader>bo", desc = "Delete Other Buffers", icon = { icon = "󰶐", color = "orange" } },
             { "<leader>bp", desc = "Previous Buffer", icon = { icon = "󰒮", color = "cyan" } },
             { "<leader>bn", desc = "Next Buffer", icon = { icon = "󰒭", color = "cyan" } },
+            { "<leader>d", group = "+diagnostics" },
+            { "<leader>dd", desc = "Line Diagnostic", icon = { icon = "󰃤", color = "yellow" } },
+            { "<leader>dl", desc = "Diagnostics Location List", icon = { icon = "󰉺", color = "cyan" } },
+            { "<leader>dq", desc = "Diagnostics Quickfix List", icon = { icon = "󰉺", color = "orange" } },
+            { "<leader>dt", desc = "Enable Diagnostics", icon = { icon = "", color = "green" } },
+            { "<leader>dT", desc = "Disable Diagnostics", icon = { icon = "", color = "red" } },
             {
                 "<leader>e",
                 group = "NvimTree Root Dir",
