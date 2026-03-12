@@ -75,7 +75,10 @@ map("n", "<leader>h", "<cmd>nohlsearch<cr>", { silent = true, desc = "Clear Sear
 map("n", "<leader>l", "<cmd>Lazy<cr>", { silent = true, desc = "Lazy" })
 
 -- Mason
-map("n", "<leader>m", "<cmd>Mason<cr>", { silent = true, desc = "Mason" })
+map("n", "<leader>mm", "<cmd>Mason<cr>", { silent = true, desc = "Mason" })
+
+-- Markdown
+map("n", "<leader>mt", "<cmd>RenderMarkdown toggle<cr>", { silent = true, desc = "Toggle RenderMarkdown" })
 
 -- <leader>om -> open :messages
 map("n", "<leader>om", function()

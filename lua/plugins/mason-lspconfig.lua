@@ -11,6 +11,7 @@ return {
                 "clangd",
                 "lua_ls",
                 "pyright",
+                "markdown_oxide",
             },
         },
 
