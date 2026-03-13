@@ -49,7 +49,7 @@ return {
             { "<leader>tp", desc = "Open PowerShell in Root Dir", icon = { icon = "󰨊", color = "azure" } },
             { "<leader>ts", desc = "Terminal Horizontal Split (Below)", icon = { icon = "󰤻", color = "cyan" } },
             { "<leader>tv", desc = "Terminal Vertical Split (Right)", icon = { icon = "󰤼", color = "cyan" } },
-            { "<leader>o", group = "output", icon = { icon = "󰈙", color = "purple" } },
+            { "<leader>o", group = "output/outline", icon = { icon = "󰈙", color = "purple" } },
             { "<leader>l", group = "Lazy", icon = { icon = "󰒲", color = "blue" } },
             { "<leader>m", group = "mason/markedown", icon = { icon = "", color = "blue" } },
             { "<leader>q", group = "quit/session" },

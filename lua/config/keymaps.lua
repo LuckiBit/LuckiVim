@@ -170,6 +170,9 @@ map("n", "<leader>oD", function()
     vim.bo.swapfile = false
 end, { silent = true, desc = "Output buffer diagnostics" })
 
+-- outline
+map("n", "<leader>oo", "<cmd>Outline<CR>", { silent = true, desc = "Toggle Outline" })
+
 -- Quit all
 map("n", "<leader>qq", "<cmd>qa<cr>", { silent = true, desc = "Quit All" })
 
