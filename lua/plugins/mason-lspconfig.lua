@@ -45,16 +45,6 @@ return {
                 compile_commands_found = vim.fn.filereadable(build_dir .. "/compile_commands.json") == 1
             end
 
-            -- If compile_commands.json is not found in both root and build directories, create a symlink
-            if not compile_commands_found then
-                vim.fn.system({
-                    "ln",
-                    "-s",
-                    build_dir .. "/compile_commands.json",
-                    project_dir .. "/compile_commands.json",
-                })
-            end
-
             vim.lsp.config("clangd", {
                 cmd = {
                     "clangd",
