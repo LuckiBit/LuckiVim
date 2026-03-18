@@ -1,6 +1,7 @@
 local opt = vim.opt
 
 -- File handling
+opt.autoread = true
 opt.autowrite = true -- Automatically save before running commands
 opt.fileencodings = { "ucs-bom", "utf-8", "default", "latin1" } -- Encoding detection order when reading ("ucs-bom", "utf-8", "default", "latin1", "euc-cn", "cp936"; 8-bit must be last)
 opt.fileformats = { "unix", "dos" } -- EOL detection order when reading (unix = \n, dos = \r\n, mac = \r)
@@ -30,7 +31,10 @@ opt.mouse = "a" -- Enable mouse in all modes
 opt.spell = false -- Enable spell checking
 opt.spelllang = { "en_us" } -- Spell language(s), e.g. "en_us", "en_gb"
 
-vim.opt.modeline = false -- allow files to set editor options via modelines
+opt.modeline = false -- allow files to set editor options via modelines
 
 -- optionally enable 24-bit colour
-vim.opt.termguicolors = true
+opt.termguicolors = true
+
+-- updatetime
+opt.updatetime = 1000

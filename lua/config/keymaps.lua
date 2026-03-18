@@ -49,6 +49,20 @@ end, { silent = true, desc = "NvimTree CWD" })
 map("n", "<leader>fn", "<cmd>enew<cr>", { silent = true, desc = "New File" })
 
 -- Telescope
+map("n", "<leader>fa", function()
+    require("telescope.builtin").find_files({
+        find_command = {
+            "rg",
+            "--files",
+            "--hidden",
+            "--no-ignore",
+            "--glob=!**/.git/*",
+            "--glob=!**/node_modules/*",
+            "--glob=!**/.cache/*",
+        },
+    })
+end, { silent = true, desc = "Find All Files" })
+
 map("n", "<leader>fb", "<cmd>Telescope buffers<cr>", { silent = true, desc = "Find Buffers" })
 map("n", "<leader>ff", "<cmd>Telescope find_files<cr>", { silent = true, desc = "Find Files" })
 map("n", "<leader>fg", "<cmd>Telescope live_grep<cr>", { silent = true, desc = "Live Grep" })
