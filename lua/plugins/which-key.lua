@@ -51,7 +51,7 @@ return {
             { "<leader>tv", desc = "Terminal Vertical Split (Right)", icon = { icon = "󰤼", color = "cyan" } },
             { "<leader>o", group = "output/outline", icon = { icon = "󰈙", color = "purple" } },
             { "<leader>l", group = "Lazy", icon = { icon = "󰒲", color = "blue" } },
-            { "<leader>m", group = "mason/markedown", icon = { icon = "", color = "blue" } },
+            { "<leader>m", group = "mason/markdown", icon = { icon = "", color = "blue" } },
             { "<leader>q", group = "quit/session" },
             { "<leader>w", proxy = "<c-w>", group = "+windows" },
         })
