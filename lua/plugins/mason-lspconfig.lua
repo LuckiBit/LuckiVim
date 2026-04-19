@@ -33,25 +33,113 @@ return {
             })
 
             -- clangd
-            local project_dir = vim.fn.getcwd() -- Get the current project root directory
-            local build_dir = project_dir .. "/build" -- Define the build directory
-            local compile_commands_path = project_dir .. "/compile_commands.json" -- Path to compile_commands.json in the root
+            -- =========================
+            -- STM32 / ESP32 / Native C/C++
+            -- =========================
 
-            -- Check if compile_commands.json exists in the project root directory
-            local compile_commands_found = vim.fn.filereadable(compile_commands_path) == 1
-
-            -- If not found in the root directory, check the build directory
-            if not compile_commands_found then
-                compile_commands_found = vim.fn.filereadable(build_dir .. "/compile_commands.json") == 1
+            local function get_project_root()
+                return vim.fs.root(0, {
+                    ".git",
+                    "compile_commands.json",
+                    "CMakeLists.txt",
+                    "idf.py",
+                }) or vim.loop.cwd()
             end
 
-            vim.lsp.config("clangd", {
+            local function find_compile_commands_dir(root)
+                local candidates = {
+                    "build",
+                    "build/Debug",
+                    "build/Release",
+                }
+
+                for _, dir in ipairs(candidates) do
+                    local path = root .. "/" .. dir .. "/compile_commands.json"
+                    if vim.fn.filereadable(path) == 1 then
+                        return root .. "/" .. dir
+                    end
+                end
+
+                if vim.fn.filereadable(root .. "/compile_commands.json") == 1 then
+                    return root
+                end
+
+                local found = vim.fs.find("compile_commands.json", {
+                    path = root,
+                    limit = 1,
+                })
+
+                if #found > 0 then
+                    return vim.fn.fnamemodify(found[1], ":h")
+                end
+
+                return nil
+            end
+
+            -- =========================
+            -- Mode selector
+            -- =========================
+            local MODE = "default" -- options: "default", "stm", "esp"
+
+            -- =========================
+            -- clangd binaries
+            -- =========================
+            local clangd_default = "clangd"
+
+            local clangd_esp = "/Users/elegance/.espressif/tools/esp-clang/esp-20.1.1_20250829/esp-clang/bin/clangd"
+
+            -- =========================
+            -- project info
+            -- =========================
+            local root = get_project_root()
+            local compile_dir = find_compile_commands_dir(root)
+
+            -- =========================
+            -- build cmd
+            -- =========================
+            local cmd = {}
+
+            if MODE == "esp" then
                 cmd = {
-                    "clangd",
+                    clangd_esp,
                     "--background-index",
                     "--clang-tidy",
-                    "--compile-commands-dir=" .. (compile_commands_found and project_dir or build_dir),
-                },
+                    "--query-driver=**xtensa-esp32-elf-gcc,**xtensa-esp32-elf-g++",
+                }
+            elseif MODE == "stm" then
+                cmd = {
+                    clangd_default,
+                    "--background-index",
+                    "--clang-tidy",
+                    "--query-driver=**arm-none-eabi-gcc,**arm-none-eabi-g++",
+                }
+            else
+                cmd = {
+                    clangd_default,
+                    "--background-index",
+                    "--clang-tidy",
+                }
+            end
+
+            -- =========================
+            -- compile database (IMPORTANT)
+            -- =========================
+            if compile_dir then
+                table.insert(cmd, "--compile-commands-dir=" .. compile_dir)
+            end
+
+            -- =========================
+            -- better completion UX (optional but recommended)
+            -- =========================
+            table.insert(cmd, "--completion-style=detailed")
+            table.insert(cmd, "--header-insertion=iwyu")
+
+            -- =========================
+            -- LSP setup
+            -- =========================
+            vim.lsp.config("clangd", {
+                cmd = cmd,
+                root_dir = root,
             })
 
             -- python
