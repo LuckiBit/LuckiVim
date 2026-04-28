@@ -3,7 +3,7 @@ local opt = vim.opt
 -- File handling
 opt.autoread = true
 opt.autowrite = true -- Automatically save before running commands
-opt.fileencodings = { "ucs-bom", "utf-8", "default", "latin1" } -- Encoding detection order when reading ("ucs-bom", "utf-8", "default", "latin1", "euc-cn", "cp936"; 8-bit must be last)
+opt.fileencodings = { "ucs-bom", "utf-8", "cp936", "gbk", "default", "latin1" } -- Encoding detection order when reading ("ucs-bom", "utf-8", "default", "latin1", "euc-cn", "cp936"; 8-bit must be last)
 opt.fileformats = { "unix", "dos" } -- EOL detection order when reading (unix = \n, dos = \r\n, mac = \r)
 opt.fileencoding = "utf-8" -- Encoding used when writing (utf-8 recommended)
 opt.fileformat = "unix" -- EOL format when writing (unix recommended for cross-platform)
