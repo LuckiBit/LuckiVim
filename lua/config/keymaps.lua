@@ -41,10 +41,6 @@ map("n", "<leader>e", function()
     require("nvim-tree.api").tree.open({ path = root_path })
 end, { silent = true, desc = "NvimTree Root Dir" })
 
-map("n", "<leader>E", function()
-    require("nvim-tree.api").tree.open({ path = cwd_path })
-end, { silent = true, desc = "NvimTree CWD" })
-
 -- new file
 map("n", "<leader>fn", "<cmd>enew<cr>", { silent = true, desc = "New File" })
 
@@ -82,8 +78,14 @@ map("n", "<leader>fs", "<cmd>Telescope lsp_document_symbols<cr>", { silent = tru
 map("n", "<leader>fS", "<cmd>Telescope lsp_workspace_symbols<cr>", { silent = true, desc = "Workspace Symbols" })
 map("n", "<leader>fd", "<cmd>Telescope diagnostics<cr>", { silent = true, desc = "Diagnostics" })
 
+-- Hex editing
+local hex = require("config.hex")
+map("n", "<leader>ht", function()
+    hex.toggle()
+end, { silent = true, desc = "Toggle Hex Mode" })
+
 -- Clear search highlight
-map("n", "<leader>h", "<cmd>nohlsearch<cr>", { silent = true, desc = "Clear Search Highlight" })
+map("n", "<leader>hh", "<cmd>nohlsearch<cr>", { silent = true, desc = "Clear Search Highlight" })
 
 -- Lazy
 map("n", "<leader>l", "<cmd>Lazy<cr>", { silent = true, desc = "Lazy" })
