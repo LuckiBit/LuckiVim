@@ -1,6 +1,7 @@
 return {
     {
         "mason-org/mason-lspconfig.nvim",
+        event = { "BufReadPre", "BufNewFile" },
         dependencies = {
             { "mason-org/mason.nvim", opts = {} },
             "neovim/nvim-lspconfig",
@@ -64,15 +65,8 @@ return {
                     return root
                 end
 
-                local found = vim.fs.find("compile_commands.json", {
-                    path = root,
-                    limit = 1,
-                })
-
-                if #found > 0 then
-                    return vim.fn.fnamemodify(found[1], ":h")
-                end
-
+                -- WARNING: Avoid unconstrained vim.fs.find downwards as it can freeze Neovim 
+                -- in large directories like the home directory.
                 return nil
             end
 
